@@ -43,6 +43,11 @@ function formSubmitHandler(event) {
     age: ageEl.value,
   };
   console.log('newUserFromInputs ===', newUserFromInputs);
+
+  // addUserToHTML()
+
+  // reset form fields
+  formEl.reset();
 }
 // sustabde forma nuo perkrovimo mes pasiimsim visu inputu reikmes
 
@@ -59,3 +64,12 @@ function showError() {
 function clearErrors() {
   errorsEl.innerHTML = '';
 }
+
+/*
+<div class="oneUser">
+  <h3>Email: james@bond.com</h3>
+  <p>Name: James</p>
+  <p>Age: 45 years old</p>
+</div>
+*/
+function addUserToHTML(userObj) {}
