@@ -10,8 +10,7 @@ const nameEl = formEl.querySelector('#name');
 const ageEl = formEl.querySelector('#age');
 // errors EL
 const errorsEl = document.getElementById('errors');
-// debugger;
-
+const outputDiv = document.getElementById('app');
 // uzdeti formai ivykio submit pasiklausyma
 
 formEl.addEventListener('submit', formSubmitHandler);
@@ -44,7 +43,7 @@ function formSubmitHandler(event) {
   };
   console.log('newUserFromInputs ===', newUserFromInputs);
 
-  // addUserToHTML()
+  addUserToHTML(newUserFromInputs);
 
   // reset form fields
   formEl.reset();
@@ -72,4 +71,14 @@ function clearErrors() {
   <p>Age: 45 years old</p>
 </div>
 */
-function addUserToHTML(userObj) {}
+function addUserToHTML(userObj) {
+  const divEl = document.createElement('div');
+  divEl.classList.add('oneUser', 'card');
+  const inneDivContents = `
+  <h3>Email: ${userObj.email}</h3>
+  <p>Name: ${userObj.name}</p>
+  <p>Age: ${userObj.age} years old</p>
+  `;
+  divEl.innerHTML = inneDivContents;
+  outputDiv.append(divEl);
+}
