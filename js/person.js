@@ -9,6 +9,8 @@ const ageEl = document.getElementById('age');
 const isMarriedEl = document.getElementById('isMarried');
 const townEl = document.getElementById('town');
 
+const outputDiv = document.getElementById('output');
+
 // perimti formos valdyma
 
 mainForm.addEventListener('submit', formSubmitHandler);
@@ -31,6 +33,34 @@ function formSubmitHandler(event) {
   personObjToHtml(newPersonObj);
 }
 
-function personObjToHtml() {
+/*
+<div class="onePerson card">
+  <h2>name surname</h2>
+  <p>25 years old.</p>
+  <p>name is married and from town</p>
+</div>
+*/
+function personObjToHtml(obj) {
   console.log('personObjToHtml ivyko');
+  // console.log('obj ===', obj);
+  const divEl = document.createElement('div');
+  divEl.classList.add('onePerson', 'card');
+  crEL('h2', `${obj.firstname} ${obj.lastname}`, divEl);
+  crEL('p', `${obj.age} years old.`, divEl);
+  const marriedOrNot = obj.isMarried === 'no' ? 'not ' : '';
+  crEL(
+    'p',
+    `${obj.firstname} is ${marriedOrNot}married and from ${obj.town}`,
+    divEl
+  );
+  outputDiv.append(divEl);
 }
+
+// helper fn
+
+function crEL(tagName, text, parentEl) {
+  const newEl = document.createElement(tagName);
+  newEl.textContent = text;
+  parentEl.append(newEl);
+}
+// crEL('h2', 'name surname', divel)
