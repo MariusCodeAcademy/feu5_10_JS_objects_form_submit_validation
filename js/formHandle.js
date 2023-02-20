@@ -3,6 +3,9 @@ console.log('formHandle.js file was loaded');
 
 // pasiimti reiksmes is formos
 
+// Global user arr
+const usersArray = []
+
 // nusitaikyti i forma ir inputus
 const formEl = document.getElementById('userForm');
 const emailEl = formEl.querySelector('#email');
@@ -43,7 +46,9 @@ function formSubmitHandler(event) {
   };
   console.log('newUserFromInputs ===', newUserFromInputs);
 
-  addUserToHTML(newUserFromInputs);
+  // addUserToHTML(newUserFromInputs);
+
+  addUserToArray(newUserFromInputs)
 
   // reset form fields
   formEl.reset();
@@ -81,4 +86,10 @@ function addUserToHTML(userObj) {
   `;
   divEl.innerHTML = inneDivContents;
   outputDiv.append(divEl);
+}
+
+// pridejimas i pagrindini masyva is kurio piesim elementus
+function addUserToArray(userObj) {
+  usersArray.push(userObj)
+  console.log('usersArray ===', usersArray);
 }
