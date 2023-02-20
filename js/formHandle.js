@@ -26,8 +26,13 @@ function formSubmitHandler(event) {
   // issivalom pries tai buvusias klaidas
   clearErrors();
 
-  if (emailEl.value === '' || nameEl.value === '' || ageEl.value === '') {
-    // alert('prasom uzpildyti');
+  // if (emailEl.value === '' || nameEl.value === '' || ageEl.value === '') {
+  //   // alert('prasom uzpildyti');
+  //   showError();
+  //   return;
+  // }
+
+  if ([emailEl.value, nameEl.value, ageEl.value].includes('')) {
     showError();
     return;
   }
