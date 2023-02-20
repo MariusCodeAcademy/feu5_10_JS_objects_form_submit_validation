@@ -25,7 +25,7 @@ function formSubmitHandler(event) {
   newPersonObj.firstname = firstnameEl.value;
   newPersonObj.lastname = lastnameEl.value;
   newPersonObj.age = ageEl.value;
-  newPersonObj.isMarried = isMarriedEl.value;
+  newPersonObj.isMarried = isMarriedEl.checked;
   newPersonObj.town = townEl.value;
   console.log('newPersonObj created ===', newPersonObj);
 
@@ -47,7 +47,7 @@ function personObjToHtml(obj) {
   divEl.classList.add('onePerson', 'card');
   crEL('h2', `${obj.firstname} ${obj.lastname}`, divEl);
   crEL('p', `${obj.age} years old.`, divEl);
-  const marriedOrNot = obj.isMarried === 'no' ? 'not ' : '';
+  const marriedOrNot = obj.isMarried === false ? 'not ' : '';
   crEL(
     'p',
     `${obj.firstname} is ${marriedOrNot}married and from ${obj.town}`,
