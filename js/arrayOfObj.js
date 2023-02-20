@@ -7,6 +7,8 @@ const cars = [
   { make: 'BMW', year: 2019 }, // 2
 ];
 
+cars.push({ make: 'Fiat', year: 2000 });
+
 console.log('cars ===', cars);
 
 console.log('cars[1] ===', cars[1]);

@@ -4,7 +4,7 @@ console.log('formHandle.js file was loaded');
 // pasiimti reiksmes is formos
 
 // Global user arr
-const usersArray = []
+const usersArray = [];
 
 // nusitaikyti i forma ir inputus
 const formEl = document.getElementById('userForm');
@@ -38,7 +38,7 @@ function formSubmitHandler(event) {
     showError();
     return;
   }
-
+  // sukuriam nauja useri is formo inputu
   const newUserFromInputs = {
     email: emailEl.value,
     name: nameEl.value,
@@ -47,8 +47,8 @@ function formSubmitHandler(event) {
   console.log('newUserFromInputs ===', newUserFromInputs);
 
   // addUserToHTML(newUserFromInputs);
-
-  addUserToArray(newUserFromInputs)
+  // debugger;
+  addUserToArray(newUserFromInputs);
 
   // reset form fields
   formEl.reset();
@@ -90,6 +90,16 @@ function addUserToHTML(userObj) {
 
 // pridejimas i pagrindini masyva is kurio piesim elementus
 function addUserToArray(userObj) {
-  usersArray.push(userObj)
-  console.log('usersArray ===', usersArray);
+  usersArray.push(userObj);
+  // console.log('usersArray ===', usersArray);
+  renderCars();
+}
+
+function renderCars() {
+  // clean out the container before regenerating
+  outputDiv.innerHTML = '';
+  for (let i = 0; i < usersArray.length; i++) {
+    const oneUser = usersArray[i];
+    addUserToHTML(oneUser);
+  }
 }
