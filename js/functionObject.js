@@ -12,6 +12,8 @@ const user = {
 
 function greeting(obj) {
   // "my name is James and Im from London"
+  const finalOutput = `my name is ${obj.username} and Im from ${obj.town}`;
+  console.log('finalOutput ===', finalOutput);
 }
 
 greeting(user);
