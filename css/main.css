@@ -6,3 +6,10 @@
   gap: 1rem;
   max-width: 30rem;
 }
+
+.singleError {
+  color: tomato;
+  padding: 15px;
+  border: 1px solid tomato;
+  text-align: center;
+}
