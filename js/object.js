@@ -37,7 +37,7 @@ delete user.isOnline;
 
 console.log('user after delete ===', user);
 
-// for in loop
+// for in loop =========================================
 
 // for (let peopertyKey in objectName) {}
 
